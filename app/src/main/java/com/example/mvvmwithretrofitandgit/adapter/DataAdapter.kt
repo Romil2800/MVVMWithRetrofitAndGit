@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mvvmwithretrofitandgit.R
 import com.example.mvvmwithretrofitandgit.models.Result
+import com.example.mvvmwithretrofitandgit.util.ColorPicker
 
 class DataAdapter (private val context: Context, private val characterList: List<Result>):
     RecyclerView.Adapter<DataAdapter.DataViewHolder>(){
@@ -28,6 +29,7 @@ class DataAdapter (private val context: Context, private val characterList: List
         holder.gender.text = characterList[position].gender
         Glide.with(context).load(characterList[position].image).into(holder.characterImage)
 
+        holder.container.setBackgroundColor(Color.parseColor(ColorPicker.getColor()))
     }
 
     override fun getItemCount(): Int {
