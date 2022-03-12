@@ -1,8 +1,10 @@
 package com.example.mvvmwithretrofitandgit.models
 
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "characters")
 data class Result(
     @SerializedName("created")
     val created: String,
