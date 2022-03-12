@@ -1,0 +1,47 @@
+package com.example.mvvmwithretrofitandgit.adapter
+
+import android.content.Context
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.mvvmwithretrofitandgit.R
+import com.example.mvvmwithretrofitandgit.models.Result
+
+class DataAdapter (private val context: Context, private val characterList: List<Result>):
+    RecyclerView.Adapter<DataAdapter.DataViewHolder>(){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_view, parent, false)
+        return DataViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
+        holder.characterName.text = characterList[position].name
+        holder.status.text = characterList[position].status
+        holder.species.text = characterList[position].species
+        holder.gender.text = characterList[position].gender
+        Glide.with(context).load(characterList[position].image).into(holder.characterImage)
+
+    }
+
+    override fun getItemCount(): Int {
+        return characterList.size
+    }
+
+    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val characterImage: ImageView = itemView.findViewById(R.id.characterImage)
+        val characterName: TextView = itemView.findViewById(R.id.characterName)
+        val status: TextView = itemView.findViewById(R.id.status)
+        val species: TextView = itemView.findViewById(R.id.species)
+        val location: TextView = itemView.findViewById(R.id.location)
+        val gender: TextView = itemView.findViewById(R.id.gender)
+        val container: ConstraintLayout = itemView.findViewById(R.id.cardContainer)
+    }
+
+}
