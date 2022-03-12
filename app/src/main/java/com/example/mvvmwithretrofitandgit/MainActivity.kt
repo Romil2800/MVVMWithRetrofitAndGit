@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val characterData = RetrofitHelper.getInstance().create(CharacterData::class.java)
-        val repository = CharacterRepository(characterData)
+        val repository = (application as CharacterApplication).characterRepository
         mainVieModel =
             ViewModelProvider(this, MainViewModelFactory(repository))[MainViewModel::class.java]
 
