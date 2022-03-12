@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MVVMWithRetrofitAndGit</string>
+    <string name="textForLocation">Last known location</string>
+    <string name="gender">Gender</string>
+    <string name="delete">Delete</string>
+    <string name="species">Species</string>
+    <string name="show_location">Show Location</string>
+    <string name="name">Name</string>
 </resources>
